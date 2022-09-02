@@ -134,8 +134,8 @@ void setup() {
 // loop function runs over and over 
 void loop() {
   //using the "UID" retrieved from "main" function --> auto-fill the data and property path for MCU to send data to 
-  publishHumidityTopicSTR = "set/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + String(uid) + "/properties/humidity"; //property path
-  publishHumidityTopic_dataSTR = "set/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + String(uid) + "/data"; //raw history data path
+  publishHumidityTopicSTR = "set/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + String(uid) + "/properties/humidity"; //property path
+  publishHumidityTopic_dataSTR = "set/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + String(uid) + "/data"; //raw history data path
 
   //converting strings to char arrays 
   int data_size_h = publishHumidityTopic_dataSTR.length() + 1;

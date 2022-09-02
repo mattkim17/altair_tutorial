@@ -81,7 +81,7 @@ credentials main_invoke(const char* certificate, const char* client_id, const ch
     http.begin(tokenserver, certificate); //server URL & Certificate to access HTTPS 
     
     String httpRequestData = "client_id=" + String(client_id) + "&client_secret=" + String(client_secret)\
-    + "&grant_type=client_credentials&scope=data+thing+function+collection";
+    + "&grant_type=client_credentials&scope=data+thing+function+collection+category";
     
     // Specify content-type header
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
