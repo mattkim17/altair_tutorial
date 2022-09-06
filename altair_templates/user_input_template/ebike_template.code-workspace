@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "..\\ebike_template"
+		},
+		{
+			"path": "..\\dashboard_template"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

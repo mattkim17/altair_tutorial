@@ -31,13 +31,13 @@ API_HOST = 'https://api.swx.altairone.com'
 #ebike-demo------------------------------------------------------
 CLIENT_ID = 'YOUR_ID' 
 CLIENT_SECRET = 'YOUR_SECRET' 
-PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/?property:state=opened"
-CREATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things"
+PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/?property:state=opened"
+CREATE_PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things"
 
 
-#Put in your SmartWorks Space and Collection/Category names
+#Put in your SmartWorks Space and Category names
 space_name = 'YOUR_SPACE_NAME'
-collection_name = 'YOUR_COLLECTION_NAME'
+category_name = 'YOUR_CATEGORY_NAME'
 
 #initializing the containers 
 header = st.container()
@@ -102,7 +102,7 @@ if st.button("See Stats!"):
             # try-except : HTTP requests in a loop can return Error 404 occasionally
             # try-except utilized to circumvent that issue and only update when HTTP request is successful 
             try: 
-                prop_path = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/categories/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
+                prop_path = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
 
                 headers = {"Authorization": "Bearer " + token}
                 data_request = {}

@@ -36,8 +36,8 @@ API_HOST = 'https://api.swx.altairone.com'
 #ebike-demo------------------------------------------------------
 CLIENT_ID = 'YOUR_ID' 
 CLIENT_SECRET = 'YOUR_SECRET' 
-PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/?property:state=opened"
-CREATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things"
+PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/?property:state=opened"
+CREATE_PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things"
 
 
 #model schema in JSON format --> can be found in 'thing'
@@ -49,10 +49,10 @@ CREATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things"
 
 model_schema = {"YOUR_SCHEMA"}
 
-#Put SmartWorks Space and Collection/Category names 
-# --> update with YOUR own Space and Collection(Category) names
+#Put SmartWorks Space and Category names 
+# --> update with YOUR own Space and Category names
 space_name = 'YOUR_SPACE_NAME'
-collection_name = 'YOUR COLLECTION NAME'
+category_name = 'YOUR CATEGORY NAME'
 
 
 #initializing the containers 
@@ -99,15 +99,15 @@ with start_ride:
 
         st.write(st.session_state.uid)
 
-        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
+        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
 
         state = {"state" : "opened"}
 
         state_response = requests.request("PUT", API_HOST + UPDATE_PATH, headers = headers,  json = state)
 
-        # Change space & collection name in the pw_update url endpoint 
+        # Change space & category name in the pw_update url endpoint 
       
-        pw_update = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/mqtt-credentials" #include your Space and Category name
+        pw_update = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/mqtt-credentials" #include your Space and Category name
         pw_payload = {"password": "YOUR PASSWORD"} #set to your own desired password
 
         response = requests.request("PUT", pw_update, headers = headers, json = pw_payload)
@@ -129,7 +129,7 @@ with user_input:
         token = swx.get_access_token(CLIENT_ID, CLIENT_SECRET, API_HOST)
         headers = {"Authorization": "Bearer " + token}
     
-        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
+        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
         
         #sending the JSON payload to set Properties to the values stored
         username = {"username": result}
@@ -156,7 +156,7 @@ if st.button("See Stats!"):
         while True:
        
 
-            prop_path = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/categories/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
+            prop_path = "https://api.swx.altairone.com/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
 
             headers = {"Authorization": "Bearer " + token}
             data_request = {}
@@ -184,7 +184,7 @@ with end_ride:
 
         headers = {"Authorization": "Bearer " + token}
 
-        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/collections/YOUR_COLLECTION_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
+        UPDATE_PATH = "/spaces/YOUR_SPACE_NAME/categories/YOUR_CATEGORY_NAME/things/" + st.session_state.uid + "/properties" #include your Space and Category name
 
 
         state = {"state": "closed"}
